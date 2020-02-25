@@ -1,0 +1,44 @@
+package my_homework;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+public class baitap_ADDREV {
+	static int dao_so(String t)
+    {
+		int [] A = new int [t.length()];
+		int t_ = Integer.parseInt(t);
+		A[0] = t_ % 10;
+		int so_dao = 0;
+		for(int i = 1; i < t.length(); i++)
+		{
+			int j = t.length() - i;
+			A[j] = (int) (t_ / Math.pow(10, t.length()-i));
+			t_ %= Math.pow(10, t.length() - i);
+		}
+		for(int i = 0; i < t.length(); i++)
+	    {
+			so_dao += A[i] * Math.pow(10, t.length() - i - 1);
+	    }
+		return so_dao;
+    }
+	public static void main(String[] args) throws FileNotFoundException {
+		// TODO Auto-generated method stub
+		System.setIn(new FileInputStream("C:\\my_project\\input.txt"));
+		Scanner sc = new Scanner(System.in);
+		int test_case = sc.nextInt();
+		String a = new String();
+		String b = new String();
+		
+		for(int tc = 0; tc < test_case; tc++)
+		{
+		    a = sc.next(); 
+		    int a1 = dao_so(a);
+		    b = sc.next();
+		    int b1 = dao_so(b);
+		    int c = a1 + b1;
+		    String c1 = Integer.toString(c);
+		    int result = dao_so(c1);
+		    System.out.println(result);
+	}
+	}
+}
