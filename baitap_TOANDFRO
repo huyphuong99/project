@@ -12,7 +12,7 @@ public class baitap_TOANDFRO {
 		{
 		    int n_cot = sc.nextInt();
 		    if(n_cot == 0)
-			break;
+		    	break;
 		    String str = new String();
 		    str = sc.next();
 		    int n_hang = str.length()/n_cot;
@@ -22,28 +22,27 @@ public class baitap_TOANDFRO {
 		    int index = 0;
 		    for(int i = 0; i < n_hang; i++)
 		    {
-			
-			for(int j = 0; j < n_cot; j++)
-			{
-			    if(i % 2 == 0)
-			    {
-				A[i][j] = str.charAt(index);
-				index += 1;
-			    }
-			    else 
-			    {
-				A[i][n_cot - j - 1] = str.charAt(index);
-				index += 1;
-			    }
-			}
+		    	for(int j = 0; j < n_cot; j++)
+		    	{
+		    		if(i % 2 == 0)
+		    		{
+		    			A[i][j] = str.charAt(index);
+		    			index += 1;
+		    		}
+		    		else 
+		    		{
+		    			A[i][n_cot - j - 1] = str.charAt(index);
+		    			index += 1;
+		    		}
+		    	}
 		    }
 		    
 		    for(int i = 0; i < n_cot; i++)
 		    {
-			for(int j = 0; j < n_hang; j++)
-			{
-			    System.out.print(A[j][i]);
-			}
+		    	for(int j = 0; j < n_hang; j++)
+		    	{
+		    		System.out.print(A[j][i]);
+		    	}
 		    }
 		    System.out.println();
 		    
