@@ -1,0 +1,54 @@
+package my_homework;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+public class baitap_TOANDFRO {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		// TODO Auto-generated method stub
+		System.setIn(new FileInputStream("C:\\my_project\\input.txt"));
+		Scanner sc = new Scanner(System.in);
+		while(true)
+		{
+		    int n_cot = sc.nextInt();
+		    if(n_cot == 0)
+			break;
+		    String str = new String();
+		    str = sc.next();
+		    int n_hang = str.length()/n_cot;
+		    char[][] A = new char[n_hang][n_cot];
+		    
+		    
+		    int index = 0;
+		    for(int i = 0; i < n_hang; i++)
+		    {
+			
+			for(int j = 0; j < n_cot; j++)
+			{
+			    if(i % 2 == 0)
+			    {
+				A[i][j] = str.charAt(index);
+				index += 1;
+			    }
+			    else 
+			    {
+				A[i][n_cot - j - 1] = str.charAt(index);
+				index += 1;
+			    }
+			}
+		    }
+		    
+		    for(int i = 0; i < n_cot; i++)
+		    {
+			for(int j = 0; j < n_hang; j++)
+			{
+			    System.out.print(A[j][i]);
+			}
+		    }
+		    System.out.println();
+		    
+		}
+
+	}
+
+}
